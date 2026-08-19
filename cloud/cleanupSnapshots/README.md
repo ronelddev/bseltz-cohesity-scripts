@@ -40,19 +40,20 @@ Note: Application Id being used must have enough permissions to list and delete 
 
     Additional prerequisites:
         - Azure Cli must be installed.
-        - Powershell
+        - Powershell (Windows or PowerShell Core on Linux/macOS)
 
     Steps:
-    1. Create new blank file using power shell and name it as powershell_compatible_cleanup_script.sh
+    1. Create new blank file and name it as powershell_compatible_cleanup_script.ps1
     2. Copy the contents of script.
-    3. chmod +x powershell_compatible_cleanup_script.sh
-    4. Execute the script (./powershell_compatible_cleanup_script.sh)
+    3. Execute the script (./powershell_compatible_cleanup_script.ps1 on Linux/macOS, .\powershell_compatible_cleanup_script.ps1 on Windows).
 
     Script Execution:
     1. On prompt enter Application Id, Principal Key, Tenant Id, Number Of Days Snapshots should be older, Job Id for which you want to filter snapshots (optional).
     2. List of snapshots would be displayed, if you wish to delete whole list type "YES" for any other input it cancels.
     Note: "YES" is case sensitive
     3. If YES is entered, all snapshots gets deleted.
+
+    All inputs can also be passed as parameters (e.g. -ApplicationId <id> -ServicePrincipalKey <key> -TenantId <tenant> -Days <n> -JobId <id>), and the confirmation prompt can be skipped with the -Force switch.
 
 3. ubuntu_compatible_cleanup_script.sh
 
@@ -61,7 +62,7 @@ Note: Application Id being used must have enough permissions to list and delete 
         - Bash
 
     Steps:
-    1. Create new blank file using power shell and name it as ubuntu_compatible_cleanup_script.sh
+    1. Create new blank file and name it as ubuntu_compatible_cleanup_script.sh
     2. Copy the contents of script.
     3. chmod +x ubuntu_compatible_cleanup_script.sh
     4. Execute the script (./ubuntu_compatible_cleanup_script.sh)
