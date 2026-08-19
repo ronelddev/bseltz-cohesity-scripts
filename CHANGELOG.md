@@ -1,0 +1,255 @@
+# Change Log for cohesity/community-automation-samples
+
+* [`2026-08-18`] [restoreCcsM365Mailbox.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/restoreCcsM365Mailbox) [`Update`] validate specified region
+* [`2026-08-18`] [cloneSQL.py](https://github.com/cohesity/community-automation-samples/tree/main/sql/python/cloneSQL) [`New`] clone a SQL database using Python
+* [`2026-08-14`] [unprotectCCSAzureVMs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/unprotectCCSAzureVMs) [`New`] unprotect CCS Azure VMs
+* [`2026-08-14`] [autoprotectM365Mailboxes.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/autoprotectM365Mailboxes) [`Update`] refactored for source enum
+* [`2026-08-13`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365SitesCSV) [`Update`] added -batchSite and -SkipIfProtectedInOtherRegion
+* [`2026-08-12`] [maintenance.py](https://github.com/cohesity/community-automation-samples/tree/main/python/maintenance) [`Update`] added support for SQL objects
+* [`2026-08-12`] [maintenance.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/maintenance) [`Update`] added support for SQL objects
+* [`2026-08-12`] [restoreDB2.py](https://github.com/cohesity/community-automation-samples/tree/main/python/restoreDB2) [`New`] restore DB2 databases
+* [`2026-08-11`] [jobList.py](https://github.com/cohesity/community-automation-samples/tree/main/python/jobList) [`Update`] modernized authentication
+* [`2026-08-10`] [autoprotectM365Mailboxes.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/autoprotectM365Mailboxes) [`Update`] added email functionality
+* [`2026-08-10`] [legalHoldCCS.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/legalHoldCCS) [`Update`] added support for sharepoint sites
+* [`2026-08-10`] [latestSQLRecoveryPoint.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/latestSQLRecoveryPoint) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [latestSQLRecoveryPoint.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/latestSQLRecoveryPoint) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [sqlRecoveryPoints.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/sqlRecoveryPoints) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [restoreSQLDBs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/deprecated/restoreSQLDBs) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [restoreSQL.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/deprecated/restoreSQL) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [restoreOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/restoreOracle) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [restoreOracle.ps1](https://github.com/cohesity/community-automation-samples/tree/main/oracle/powershell/restoreOracle) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [snapshotList.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/snapshotList) [`Update`] fix for 7.4 search changes
+* [`2026-08-10`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added known NBU utilities
+* [`2026-08-09`] [recoveryPoints.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/recoveryPoints) [`Update`] fix for 7.4 search changes
+* [`2026-08-09`] [recoveryPoints.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/recoveryPoints) [`Update`] fix for 7.4 search changes
+* [`2026-08-09`] [cloneSQLDBs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/cloneSQLDBs) [`Update`] fix for 7.4 search changes
+* [`2026-08-09`] [cloneSQL.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/cloneSQL) [`Update`] fix for 7.4 search changes
+* [`2026-08-09`] [cloneOracle.ps1](https://github.com/cohesity/community-automation-samples/tree/main/oracle/powershell/cloneOracle) [`Update`] fix for 7.4 search changes
+* [`2026-08-09`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] fix for 7.4 search changes
+* [`2026-08-06`] [clusterProtectionRuns.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/clusterProtectionRuns) [`Update`] fixed auth failure trap
+* [`2026-08-06`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] added culture fix for mangled dates
+* [`2026-08-04`] [snapshotArchiveInventory.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/snapshotArchiveInventory) [`New`] Snapshot and Archive inventory report
+* [`2026-08-03`] [chargebackReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/chargebackReport) [`Update`] added support for CAD
+* [`2026-07-30`] [protectCassandra.py](https://github.com/cohesity/community-automation-samples/tree/main/python/protectCassandra) [`Update`] added -cad, --cad option
+* [`2026-07-30`] [clusterProtectionActivities.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/clusterProtectionActivities) [`Update`] added data read/written columns
+* [`2026-07-30`] [heliosAuditLogs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/powershell/heliosAuditLogs) [`New`] download audit logs from Helios
+* [`2026-07-29`] [backupNow.py](https://github.com/cohesity/community-automation-samples/tree/main/python/backupNow) [`Update`] fixed string match for direct archival run
+* [`2026-07-29`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] fixes
+* [`2026-07-29`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] added multi-cluster support
+* [`2026-07-18`] [downloadCCSM365Files.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/downloadCCSM365Files) [`New`] Download M365 OneDrive and Sharepoint files from CCS
+* [`2026-07-17`] [heliosDashboard.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/powershell/heliosDashboard) [`New`] Build an HTML Helios cluster health dashboard Using PowerShell
+* [`2026-07-16`] [expireOldSnapshots.py](https://github.com/cohesity/community-automation-samples/tree/main/python/expireOldSnapshots) [`Update`] updated to use V2 APIs
+* [`2026-07-16`] [expireOldSnapshots.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/expireOldSnapshots) [`Update`] updated to use V2 APIs
+* [`2026-07-16`] [changeLocalRetention.py](https://github.com/cohesity/community-automation-samples/tree/main/python/changeLocalRetention) [`Update`] updated to use V2 APIs
+* [`2026-07-16`] [changeLocalRetention.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/changeLocalRetention) [`Update`] updated to use V2 APIs
+* [`2026-07-15`] [protectHypervVMs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/protectHypervVMs) [`Update`] bug fix
+* [`2026-07-14`] [redundantProtectionReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/redundantProtectionReport) [`Update`] modernized authentication
+* [`2026-07-14`] [epicThroughputCalculator.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/epicThroughputCalculator) [`New`] Epic backup/restore throughput calculator
+* [`2026-07-13`] [epicGflagRecommendations.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/epicGflagRecommendations) [`New`] calculate cluster and agent gflag settings for Epic backup performance
+* [`2026-07-13`] [epicGflagRecommendations.sh](https://github.com/cohesity/community-automation-samples/tree/main/bash/epicGflagRecommendations) [`New`] calculate cluster and agent gflag settings for Epic backup performance
+* [`2026-07-10`] [dataClasificationScanReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/powershell/dataClasificationScanReport) [`New`] generate a data classification scan report
+* [`2026-07-10`] [advDiagEnum.py](https://github.com/cohesity/community-automation-samples/tree/main/python/advDiagEnum) [`New`] enumerate advanced diagnostics schemas and metrics using python
+* [`2026-07-10`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] view stats fix
+* [`2026-07-10`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] view stats fix
+* [`2026-07-10`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] added fixCsv and displayCsv functions
+* [`2026-07-09`] [protectCCSSQL.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCCSSQL) [`New`] protect MS SQL databases in CCS
+* [`2026-07-07`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] added -if, --interface parameter
+* [`2026-07-07`] [Import-ClusterCertificate.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/Import-ClusterCertificate) [`New`] export certificate from cluster and import it into the Windows trusted root store
+* [`2026-07-06`] [webSession.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/rudiments) [`New`] for PowerShell development guide
+* [`2026-07-06`] [userSession.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/rudiments) [`New`] for PowerShell development guide
+* [`2026-07-06`] [helios.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/rudiments) [`New`] for PowerShell development guide
+* [`2026-07-06`] [apiKey.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/rudiments) [`New`] for PowerShell development guide
+* [`2026-07-06`] [accessToken.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/rudiments) [`New`] for PowerShell development guide
+* [`2026-07-06`] [runs-example.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/examples/runs-example) [`New`] for PowerShell development guide
+* [`2026-07-06`] [auth-example.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/examples/auth-example) [`New`] for PowerShell development guide
+* [`2026-07-06`] [auth-example-multi.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/examples/auth-example-multi) [`New`] for PowerShell development guide
+* [`2026-07-06`] [auth-example-CCS.ps1](https://github.com/cohesity/community-automation-samples/tree/main/devGuide/powershell/examples/auth-example-CCS) [`New`] for PowerShell development guide
+* [`2026-07-01`] [jobList.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/jobList) [`Update`] added tenant and host type columns
+* [`2026-07-01`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] adjusted archive consumption
+* [`2026-07-01`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] adjusted archive consumption
+* [`2026-06-30`] [updateJob.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/updateJob) [`Update`] enforce single tenant
+* [`2026-06-30`] [deleteObjectBackups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/deleteObjectBackups) [`Update`] fixes
+* [`2026-06-29`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] fixes
+* [`2026-06-29`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] fixes
+* [`2026-06-29`] [licenseReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/licenseReport) [`Update`] reposted
+* [`2026-06-26`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added -sp, --safepaths option, -v, --version option, excluded dates from redaction, fixes
+* [`2026-06-23`] [mutualCiphers.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/mutualCiphers) [`New`] find mutual TLS ciphers
+* [`2026-06-23`] [updateJob.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/updateJob) [`Update`] added -allJobs options
+* [`2026-06-18`] [snapshotList.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/snapshotList) [`Update`] modernized authentication
+* [`2026-06-17`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] various improvements
+* [`2026-06-17`] [clusterProtectionActivities.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/clusterProtectionActivities) [`New`] protection activities report
+* [`2026-06-16`] [clusterProtectionRuns.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/clusterProtectionRuns) [`Update`] added --jobname and --joblist parameters
+* [`2026-06-15`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] added MAC addresses
+* [`2026-06-10`] [clusterProtectionRuns.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/clusterProtectionRuns) [`Update`] added expiration date and retention days columns
+* [`2026-06-09`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] fixed replicated view snapshot count
+* [`2026-06-08`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added multi-line redaction, file/folder name redaction, ignore linux standard paths
+* [`2026-06-08`] [removeUnusedPolicies.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/removeUnusedPolicies) [`Update`] modernized authentication
+* [`2026-06-08`] [viewList.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/viewList) [`Update`] modernized authentication
+* [`2026-06-08`] [enableDatalock.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/enableDatalock) [`Update`] fix CBS error
+* [`2026-06-06`] [restoreSQLv2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLv2) [`Update`] favor local snapshot vs archive and added -includeArchives option
+* [`2026-06-06`] [gflags.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/gflags) [`Update`] fixed restart after import
+* [`2026-06-05`] [protectCassandra.py](https://github.com/cohesity/community-automation-samples/tree/main/python/protectCassandra) [`Update`] unexclude inclusions
+* [`2026-06-04`] [replicationReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/replicationReport) [`Update`] filter on specified policies
+* [`2026-06-03`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added unique redaction strings for pattern matches
+* [`2026-06-03`] [protectSQL.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/protectSQL) [`Update`] added new switches: -incrForLogBreak, -incrForNewDB, -noIncrForLogBreak, -noIncrForNewDB
+* [`2026-06-02`] [fileSearch.py](https://github.com/cohesity/community-automation-samples/tree/main/python/fileSearch) [`Update`] fixed --showversions error
+* [`2026-05-29`] [deleteSQLBackups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/deleteSQLBackups) [`New`] delete SQL server backups
+* [`2026-05-29`] [restoreSQLv2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLv2) [`Update`] improved target server API query
+* [`2026-05-28`] [heliosCSVReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-reporting/powershell/heliosCSVReport) [`Update`] added parallel processing
+* [`2026-05-26`] [fileSearch.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/fileSearch) [`Update`] added file size when using -showversions option
+* [`2026-05-25`] [deployLinuxAgent.py](https://github.com/cohesity/community-automation-samples/tree/main/python/deployLinuxAgent) [`Update`] quiet cryptography warning
+* [`2026-05-22`] [viewGrowth.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/viewGrowth) [`Update`] updated for 7.3.x
+* [`2026-05-22`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] fixed archive count, oldest archive date
+* [`2026-05-22`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] fixed archive count, oldest archive date
+* [`2026-05-20`] [backupNow.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/backupNow) [`Update`] fixed new object search
+* [`2026-05-20`] [backupNow.py](https://github.com/cohesity/community-automation-samples/tree/main/python/backupNow) [`Update`] fixed new object search
+* [`2026-05-14`] [replicationReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/replicationReport) [`Update`] added run ID and error message columns
+* [`2026-05-14`] [activeSnapshots.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/activeSnapshots) [`Update`] added STARTTLS support
+* [`2026-05-13`] [createS3View.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/createS3View) [`Update`] fixed issue with showing S3 keys when connected through Helios
+* [`2026-05-13`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] reordered auth attempts (now sessions are tried before accessTokens)
+* [`2026-05-13`] [usersAndGroups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/usersAndGroups) [`Update`] added -adminsOnly option
+* [`2026-05-12`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] fixed replicated view stats bug in Cohesity 7.4
+* [`2026-05-12`] [validateServerBackup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/validateServerBackup) [`Update`] added multi-tenancy support
+* [`2026-05-12`] [policyTool.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/policyTool) [`Update`] fixed deletereplica, and fixed weekly/monthly addreplica/addarchive
+* [`2026-05-08`] [restoreCcsM365Mailbox.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/restoreCcsM365Mailbox) [`Update`] refactored for performance
+* [`2026-05-07`] [restoreSQLv2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLv2) [`Update`] minor bug fixes
+* [`2026-05-07`] [restoreCcsM365Mailbox.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/restoreCcsM365Mailbox) [`Update`] added -region parameter
+* [`2026-05-07`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] fixed CAD weight calculation
+* [`2026-05-07`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] fixed CAD weight calculation
+* [`2026-05-06`] [archiveInventory.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/archiveInventory) [`Update`] added support for CAD
+* [`2026-05-05`] [policyTool.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/policyTool) [`Update`] minor bug fixes
+* [`2026-05-05`] [backupNow.py](https://github.com/cohesity/community-automation-samples/tree/main/python/backupNow) [`Update`] minor bug fixes
+* [`2026-05-05`] [backupNow.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/backupNow) [`Update`] minor bug fixes
+* [`2026-05-05`] [storagePerObjectReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/storagePerObjectReport) [`Update`] minor bug fixes
+* [`2026-05-05`] [storagePerObjectReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/storagePerObjectReport) [`Update`] minor bug fixes
+* [`2026-05-05`] [pyhesity.py](https://github.com/cohesity/community-automation-samples/tree/main/python/pyhesity) [`Update`] minor bug fixes
+* [`2026-05-05`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] minor bug fixes
+* [`2026-05-01`] [heliosReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-reporting/python/heliosReport) [`Update`] added parallel proceessing
+* [`2026-04-29`] [activeSnapshots.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/activeSnapshots) [`Update`] added support for TLS encryption for SMTP
+* [`2026-04-29`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added support for .tgz
+* [`2026-04-28`] [archiveMediaInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/archiveMediaInfo) [`Update`] added expiration date
+* [`2026-04-28`] [policyList.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/policyList) [`Update`] modernized authentication
+* [`2026-04-28`] [sqlReprotectWithSourceSideDedup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/sqlReprotectWithSourceSideDedup) [`New`] recreate SQL file-based protection groups with source side dedup enabled
+* [`2026-04-27`] [restoreSQLDBs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLDBs) [`Update`] moved to deprecated folder
+* [`2026-04-27`] [restoreSQL.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQL) [`Update`] moved to deprecated folder
+* [`2026-04-27`] [jobObjectHistory.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/jobObjectHistory) [`Update`] modernized authentication
+* [`2026-04-27`] [migrateView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateView) [`Update`] added file datalock options
+* [`2026-04-20`] [restoreOracle-v2.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/restoreOracle-v2) [`Update`] added `-ap`, `--allpdbs` parameter
+* [`2026-04-20`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] added disk counts
+* [`2026-04-16`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] fixed missing cluster name
+* [`2026-04-16`] [downloadM365MailboxPST.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/downloadM365MailboxPST) [`Update`] fixed support for SMTP address search
+* [`2026-04-16`] [gflags.py](https://github.com/cohesity/community-automation-samples/tree/main/python/gflags) [`Update`] updated service restart code
+* [`2026-04-16`] [gflags.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/gflags) [`Update`] updated service restart code
+* [`2026-04-14`] [epic_pure_ppg_thaw.sh](https://github.com/cohesity/community-automation-samples/tree/main/bash/epic_pure_ppg_freeze_thaw) [`New`] thaw script for Epic Pure PPG backups
+* [`2026-04-14`] [epic_pure_ppg_freeze.sh](https://github.com/cohesity/community-automation-samples/tree/main/bash/epic_pure_ppg_freeze_thaw) [`New`] freeze script for Epic Pure PPG backups
+* [`2026-04-13`] [replicateOldSnapshotsV2.py](https://github.com/cohesity/community-automation-samples/tree/main/python/replicateOldSnapshotsV2) [`Update`] added support for multiple run IDs
+* [`2026-04-11`] [obfuscateLogs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/obfuscateLogs) [`Update`] added custom rules option
+* [`2026-04-11`] [backupNowCcs-multi.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/backupNowCcs-multi) [`Update`] added -sourceName parameter
+* [`2026-04-10`] [legalHoldAll.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/legalHoldAll) [`Update`] added date range filters
+* [`2026-04-07`] [restoreSQLv2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLv2) [`Update`] added -flatFilePath option to restore databases as flat files
+* [`2026-04-03`] [pyhesity.py](https://github.com/cohesity/community-automation-samples/tree/main/python/pyhesity) [`Update`] find secrets in environment variables
+* [`2026-04-03`] [envname.py](https://github.com/cohesity/community-automation-samples/tree/main/python/envname) [`Update`] report which environment variables to use with pyhesity
+* [`2026-03-31`] [restoreFiles.exe](https://github.com/cohesity/community-automation-samples/tree/main/windows/restoreFiles) [`Update`] update to latest code from restoreFiles.py
+* [`2026-03-31`] [legalHoldCCS.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/legalHoldCCS) [`Update`] rewrite for scalability
+* [`2026-03-31`] [protectCcsM365OneDriveCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365OneDriveCSV) [`Update`] added -pause -resume options
+* [`2026-03-30`] [jobReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/jobReport) [`Update`] fix for running jobs
+* [`2026-03-30`] [pyhesity.py](https://github.com/cohesity/community-automation-samples/tree/main/python/pyhesity) [`Update`] Updated Helios auth exception handling
+* [`2026-03-30`] [fileSearch.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/fileSearch) [`New`] File search for PowerShell
+* [`2026-03-27`] [protectCcsM365MailboxesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365MailboxesCSV) [`Update`]
+* [`2026-03-27`] [legalHoldCCS.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/legalHoldCCS) [`Update`] fixed timestamp issue
+* [`2026-03-25`] [backupNowCcs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/backupNowCcs) [`Update`] README fix
+* [`2026-03-25`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] fixed org support for Helios
+* [`2026-03-25`] [protectView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/protectView) [`Update`] modernized authentication
+* [`2026-03-25`] [createS3View.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/createS3View) [`Update`] updated to v2 API, added support for helios
+* [`2026-03-24`] [cloneVM.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneVM) [`Update`] made folder name optional
+* [`2026-03-23`] [cloneBackupToView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneBackupToView) [`Update`] fixed missing old backups
+* [`2026-03-18`] [protectCassandra.py](https://github.com/cohesity/community-automation-samples/tree/main/python/protectCassandra) [`Update`] added alert recipient validation and removal
+* [`2026-03-17`] [heliosClusterConfigBackups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/powershell/heliosClusterConfigBackups) [`New`] report cluster backups in Helios
+* [`2026-03-17`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] added -j, --jobname parameter
+* [`2026-03-16`] [deployHSM.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/deployHSM) [`New`] deploy Helios Self-Managed virtual edition
+* [`2026-03-16`] [heliosSMBackups.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/python/heliosSMBackups) [`New`] report Helios Self-Managed backups
+* [`2026-03-16`] [heliosSMBackups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/helios-other/powershell/heliosSMBackups) [`New`] report Helios Self-Managed backups
+* [`2026-03-12`] [autoprotectM365Mailboxes.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/autoprotectM365Mailboxes) [`New`] protect M365 Mailboxes (customer-managed)
+* [`2026-03-12`] [unprotectCcsM365GroupsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/unprotectCcsM365GroupsCSV) [`New`] unprotect M365 Groups from CSV file
+* [`2026-03-11`] [fileSearch.py](https://github.com/cohesity/community-automation-samples/tree/main/python/fileSearch) [`Update`] added -runid option
+* [`2026-03-11`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365SitesCSV) [`Update`] added -autoprotectCount option
+* [`2026-03-11`] [protectCcsM365GroupsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365GroupsCSV) [`Update`] added -autoprotectCount option
+* [`2026-03-11`] [protectCcsM365TeamsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365TeamsCSV) [`Update`] added -autoprotectCount option
+* [`2026-03-11`] [protectCcsM365OneDriveCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365OneDriveCSV) [`Update`] added -autoprotectCount option
+* [`2026-03-09`] [unprotectCcsM365OneDriveCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/unprotectCcsM365OneDriveCSV) [`New`] unprotect M365 OneDrives from CSV file
+* [`2026-03-06`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] added VIPs
+* [`2026-03-05`] [clusterProtectionRuns.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/clusterProtectionRuns) [`Update`] added --lastrunonly option
+* [`2026-03-04`] [jobReport.py](https://github.com/cohesity/community-automation-samples/tree/main/reports/python/jobReport) [`New`] report last run info per protection group
+* [`2026-03-04`] [protectCcsM365MailboxesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365MailboxesCSV) [`Update`] added -autoprotectCount option
+* [`2026-03-03`] [unprotectCcsM365MailboxesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/unprotectCcsM365MailboxesCSV) [`New`] unprotect M365 mailboxes from CSV file
+* [`2026-03-03`] [protectCcsM365OneDriveCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365OneDriveCSV) [`New`] protect M365 OneDrives from CSV file
+* [`2026-03-03`] [protectCcsM365MailboxesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365MailboxesCSV) [`New`] protect M365 mailboxes from CSV file
+* [`2026-03-02`] [unprotectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/unprotectccsM365SitesCSV) [`New`] unprotect M365 sites from CSV file
+* [`2026-03-02`] [protectCcsM365GroupsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365GroupsCSV) [`Update`] skip team groups
+* [`2026-03-01`] [heliosVEBackup.sh](https://github.com/cohesity/community-automation-samples/tree/main/bash/heliosVEBackup) [`New`] backup Helios virtual edition VMs
+* [`2026-03-01`] [heliosMonitor.py](https://github.com/cohesity/community-automation-samples/tree/main/python/heliosMonitor) [`New`] monitor Helios self-managed startup
+* [`2026-03-01`] [vmMacAddresses.py](https://github.com/cohesity/community-automation-samples/tree/main/vmware/python/vmMacAddresses) [`New`] report VVMware VM MAC addresses
+* [`2026-03-01`] [shutdownVMs.py](https://github.com/cohesity/community-automation-samples/tree/main/vmware/python/shutdownVMs) [`New`] shutdown VMware VMs
+* [`2026-03-01`] [powerOnVMs.py](https://github.com/cohesity/community-automation-samples/tree/main/vmware/python/powerOnVMs) [`New`] power on VMware VMs
+* [`2026-02-28`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365SitesCSV) [`Update`] skip group/team sites
+* [`2026-02-27`] [recoverAHVVMs-throttledV2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/recoverAHVVMs-throttled) [`Update`] 7.3.2 update to support preserve MAC address
+* [`2026-02-27`] [recoverAHVVMsV2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/recoverAHVVMs) [`Update`] 7.3.2 update to support preserve MAC address
+* [`2026-02-27`] [heliosVEbackup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/heliosVEbackup) [`New`] backup Helios virtual edition VMs
+* [`2026-02-25`] [recoverAHVVMs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/recoverAHVVMs) [`Update`] added preserve Mac address option
+* [`2026-02-25`] [recoverAHVVMs-throttled.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/recoverAHVVMs-throttled) [`Update`] added preserve Mac address option
+* [`2026-02-25`] [cloneBackupToView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneBackupToView) [`Update`] added object search
+* [`2026-02-25`] [protectAHVVMs.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/protectAHVVMs) [`Update`] update disk exclusions for already protected VMs
+* [`2026-02-25`] [protectAHVVMs.py](https://github.com/cohesity/community-automation-samples/tree/main/python/protectAHVVMs) [`Update`] update disk exclusions for already protected VMs
+* [`2026-02-24`] [cloneBackupToView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneBackupToView) [`Update`] updated runs query
+* [`2026-02-24`] [clusterProtectionRuns.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/clusterProtectionRuns) [`Update`] added snapshot expiration date
+* [`2026-02-24`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365SitesCSV) [`Update`] protect sub-sites
+* [`2026-02-23`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] fixed snapshot selection
+* [`2026-02-20`] [backupGitHub-mirror.sh](https://github.com/cohesity/community-automation-samples/tree/main/remoteAdapter/backupGitHub) [`New`] Backup GitHub using --mirror option
+* [`2026-02-18`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] updated -dbg to functionality
+* [`2026-02-16`] [restoreMongoDBOpsManager.py](https://github.com/cohesity/community-automation-samples/tree/main/python/restoreMongoDBOpsManager) [`New`] restore MongoDB Ops Manager
+* [`2026-02-16`] [powershell_compatible_cleanup_script.ps1](https://github.com/cohesity/community-automation-samples/tree/main/cloud/cleanupSnapshots) [`Update`] code update
+* [`2026-02-13`] [protectMongoDBOpsManager.py](https://github.com/cohesity/community-automation-samples/tree/main/python/protectMongoDBOpsManager) [`New`] protect MongoDB Ops Manager
+* [`2026-02-13`] [protectCcsM365GroupsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365GroupsCSV) [`New`] new script variant to take input from CSV file
+* [`2026-02-13`] [protectCcsM365TeamsCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365TeamsCSV) [`New`] new script variant to take input from CSV file
+* [`2026-02-12`] [registerMongoDBOpsManager.py](https://github.com/cohesity/community-automation-samples/tree/main/python/registerMongoDBOpsManager) [`New`] register a MongoDB Ops Manager protection source
+* [`2026-02-11`] [createNFSView.py](https://github.com/cohesity/community-automation-samples/tree/main/python/createNFSView) [`Update`] fix QOS name 7.3.1
+* [`2026-02-11`] [cloneBackupToView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneBackupToView) [`Update`] update for runs list
+* [`2026-02-10`] [unprotectCcsObjects.py](https://github.com/cohesity/community-automation-samples/tree/main/ccs/python/unprotectCcsObjects) [`Update`] fix objectId issue
+* [`2026-02-10`] [overwriteView.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/overwriteView) [`New`] overwrite a view
+* [`2026-02-10`] [legalHold.py](https://github.com/cohesity/community-automation-samples/tree/main/python/legalHold) [`Update`] fixed TypeError: 'int' object is not iterable
+* [`2026-02-09`] [smbPermissions.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/smbPermissions) [`Update`] added support for local users and groups
+* [`2026-02-06`] [sqlJobSelections.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/sqlJobSelections) [`Update`] added protection type column to output
+* [`2026-02-05`] [cloneVM.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cloneVM) [`Update`] remove debug statements
+* [`2026-02-05`] [ccsSlaMonitor.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/ccsSlaMonitor) [`New`] Monitor SLA violations in CCS
+* [`2026-02-03`] [pyhesity.py](https://github.com/cohesity/community-automation-samples/tree/main/python/pyhesity) [`Update`] added pauseCohesityAPIDebugger and resumeCohesityAPIDebugger functions
+* [`2026-02-03`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] added pauseCohesityAPIDebugger and resumeCohesityAPIDebugger functions
+* [`2026-02-02`] [pyhesity.py](https://github.com/cohesity/community-automation-samples/tree/main/python/pyhesity) [`Update`] added enableCohesityAPIDebugger function (output cohesity-har-file.txt)
+* [`2026-02-01`] [cohesity-api.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/cohesity-api) [`Update`] added enableCohesityAPIDebugger function (output cohesity-har-file.txt)
+* [`2026-02-01`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365SitesCSV) [`Update`] added -dbg switch (enableCohesityAPIDebugger)
+* [`2026-01-30`] [policyTool.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/policyTool) [`Update`] fix for calendar based scheduling
+* [`2026-01-29`] [enableDatalock.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/enableDatalock) [`Update`] fix for calendar based scheduling
+* [`2026-01-29`] [epic_pure_freeze_thaw.sh](https://github.com/cohesity/community-automation-samples/tree/main/bash/epic_pure_freeze_thaw) [`Update`] fix for AIX syntax error
+* [`2026-01-22`] [ccsActivityReport.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/ccsActivityReport) [`New`] generate a CCS activity report
+* [`2026-01-18`] [migrateGenericNasProtectionGroup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateGenericNasProtectionGroup) [`Update`] added support for NGCE
+* [`2026-01-18`] [migrateSQLProtectionGroup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateSQLProtectionGroup) [`Update`] added support for NGCE
+* [`2026-01-18`] [migratePhysicalProtectionGroup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migratePhysicalProtectionGroup) [`Update`] added support for NGCE
+* [`2026-01-17`] [migrateUsersAndGroups.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateUsersAndGroups) [`Update`] scalability improvements
+* [`2026-01-16`] [migrateProtectionPolicy.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateProtectionPolicy) [`Update`] added support for NGCE
+* [`2026-01-16`] [migrateEC2ProtectionGroup.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/migrateEC2ProtectionGroup) [`Update`] added support for NGCE
+* [`2026-01-14`] [backupGitHub.sh](https://github.com/cohesity/community-automation-samples/tree/main/remoteAdapter/backupGitHubV2) [`New`] Advanced remote adapter script for GitHub backups
+* [`2026-01-14`] [clusterInfo.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/clusterInfo) [`Update`] added network bond names and speeds
+* [`2026-01-13`] [ccsM365MailboxExcludedFolders.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/ccsM365MailboxExcludedFolders) [`New`] list the excluded folders for protected M365 mailboxes
+* [`2026-01-09`] [netappImportShares.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/netappImportShares) [`Update`] updated to support BUILTIN principals
+* [`2026-01-08`] [findFiles.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/findFiles) [`Update`] added -lastBackupOnly switch
+* [`2026-01-07`] [clusterProtectionRuns.ps1](https://github.com/cohesity/community-automation-samples/tree/main/reports/powershell/clusterProtectionRuns) [`Update`] added -onHoldOnly switch to report objects that are on legalHold
+* [`2026-01-06`] [protectCcsM365SitesCSV.ps1](https://github.com/cohesity/community-automation-samples/tree/main/ccs/powershell/protectCcsM365Sites) [`New`] new script variant to take input from CSV file
+* [`2026-01-06`] [powershell_compatible_cleanup_script.ps1](https://github.com/cohesity/community-automation-samples/tree/main/cloud/cleanupSnapshots) [`Update`] updated code from author
+* [`2026-01-05`] [cloneOracle.py](https://github.com/cohesity/community-automation-samples/tree/main/oracle/python/cloneOracle) [`Update`] added -ds, --dontskipclonenid option
+* [`2026-01-02`] [expireOldSnapshots.ps1](https://github.com/cohesity/community-automation-samples/tree/main/powershell/expireOldSnapshots) [`Update`] updated error catching
+* [`2026-01-02`] [restoreSQLv2.ps1](https://github.com/cohesity/community-automation-samples/tree/main/sql/powershell/restoreSQLv2) [`Update`] fixed range selection issue
+
+## Old Change Logs
+
+* [CHANGELOG 2025](https://github.com/cohesity/community-automation-samples/blob/main/Old-CHANGELOG-2025.md)
+* [CHANGELOG 2024](https://github.com/cohesity/community-automation-samples/blob/main/Old-CHANGELOG-2024.md)
+* [CHANGELOG 2023](https://github.com/cohesity/community-automation-samples/blob/main/Old-CHANGELOG-2023.md)
