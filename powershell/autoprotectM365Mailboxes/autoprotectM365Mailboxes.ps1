@@ -1,0 +1,373 @@
+### process commandline arguments
+[CmdletBinding()]
+param (
+    [Parameter()][string]$vip='helios.cohesity.com',
+    [Parameter()][string]$username = 'helios',
+    [Parameter()][string]$domain = 'local',
+    [Parameter()][string]$tenant,
+    [Parameter()][switch]$useApiKey,
+    [Parameter()][string]$password,
+    [Parameter()][switch]$noPrompt,
+    [Parameter()][switch]$helios,
+    [Parameter()][string]$mfaCode,
+    [Parameter()][switch]$emailMfaCode,
+    [Parameter()][string]$clusterName,
+    [Parameter(Mandatory = $True)][string]$jobPrefix,  # name of the job to add VM to
+    [Parameter()][string]$startTime = '20:00', # e.g. 23:30 for 11:30 PM
+    [Parameter()][string]$timeZone = 'America/New_York', # e.g. 'America/New_York'
+    [Parameter()][string]$storageDomainName = 'DefaultStorageDomain',  # storage domain you want the new job to write to
+    [Parameter(Mandatory = $True)][string]$policyName,  # protection policy name
+    [Parameter()][switch]$paused,  # pause future runs (new job only)
+    [Parameter()][int]$incrementalSlaMinutes = 60,
+    [Parameter()][int]$fullSlaMinutes = 120,
+    [Parameter()][switch]$disableIndexing,
+    [Parameter()][int]$maxObjectsPerJob = 4000,
+    [Parameter(Mandatory = $True)][string]$sourceName,
+    [Parameter()][int]$maxToProtect = 1000,
+    [Parameter()][switch]$updateExistingJobs,
+    [Parameter()][array]$excludeFolders,
+    [Parameter()][string]$smtpServer, # outbound smtp server
+    [Parameter()][string]$smtpPort = 25, # outbound smtp port
+    [Parameter()][array]$sendTo, # send to addresses
+    [Parameter()][string]$sendFrom # send from address
+)
+
+# source the cohesity-api helper code
+. $(Join-Path -Path $PSScriptRoot -ChildPath cohesity-api.ps1)
+
+# authentication =============================================
+# demand clusterName for Helios
+if(($vip -eq 'helios.cohesity.com' -or $mcm) -and ! $clusterName){
+    Write-Host "-clusterName required when connecting to Helios" -ForegroundColor Yellow
+    exit 1
+}
+
+# authenticate
+apiauth -vip $vip -username $username -domain $domain -passwd $password -apiKeyAuthentication $useApiKey -mfaCode $mfaCode -sendMfaCode $emailMfaCode -heliosAuthentication $helios -regionid $region -tenant $tenant -noPromptForPassword $noPrompt
+
+# exit on failed authentication
+if(!$cohesity_api.authorized){
+    Write-Host "Not authenticated" -ForegroundColor Yellow
+    exit 1
+}
+
+# select helios managed cluster
+if($USING_HELIOS){
+    $thisCluster = heliosCluster $clusterName
+    if(! $thisCluster){
+        exit 1
+    }
+}
+# end authentication =========================================
+
+$logFile = "$($jobPrefix)-log.txt"
+$today = Get-Date -UFormat '%Y-%m-%d %H:%M:%S'
+"`n==================================`nScript started $today`n==================================" | Out-File -FilePath $logFile -Append
+
+# find protection source
+$rootSource = api get "protectionSources/rootNodes?environments=kO365" | Where-Object {$_.protectionSource.name -eq $sourceName}
+if(! $rootSource){
+    Write-Host "protection source $sourceName not found" -ForegroundColor Yellow
+    exit 1
+}
+$rootSourceId = $rootSource[0].protectionSource.id
+
+# find policy
+$policy = (api get -v2 "data-protect/policies").policies | Where-Object name -eq $policyName
+if(!$policy){
+    Write-Host "Policy $policyName not found" -ForegroundColor Yellow
+    exit 1
+}
+
+# find storageDomain
+$viewBoxes = api get viewBoxes
+if($viewBoxes -is [array]){
+        $viewBox = $viewBoxes | Where-Object { $_.name -ieq $storageDomainName }
+        if (!$viewBox) { 
+            write-host "Storage domain $storageDomainName not Found" -ForegroundColor Yellow
+            exit 1
+        }
+}else{
+    $viewBox = $viewBoxes[0]
+}
+
+# parse startTime
+$hour, $minute = $startTime.split(':')
+$tempInt = ''
+if(! (($hour -and $minute) -or ([int]::TryParse($hour,[ref]$tempInt) -and [int]::TryParse($minute,[ref]$tempInt)))){
+    Write-Host "Please provide a valid start time" -ForegroundColor Yellow
+    exit 1
+}
+
+# pause future runs
+if($paused){
+    $isPaused = $True
+}else{
+    $isPaused = $false
+}
+
+# configure indexing
+if($disableIndexing){
+    $enableIndexing = $false
+}else{
+    $enableIndexing = $True
+}
+
+# new protection group template
+$newjob = @{
+    "policyId" = $policy.id;
+    "isPaused" = $isPaused;
+    "startTime" = @{
+        "hour"     = [int]$hour;
+        "minute"   = [int]$minute;
+        "timeZone" = $timeZone
+    };
+    "priority" = "kMedium";
+    "sla" = @(
+        @{
+            "backupRunType" = "kFull";
+            "slaMinutes" = $fullSlaMinutes
+        };
+        @{
+            "backupRunType" = "kIncremental";
+            "slaMinutes" = $incrementalSlaMinutes
+        }
+    );
+    "qosPolicy" = "kBackupHDD";
+    "abortInBlackouts" = $false;
+    "storageDomainId" = $viewBox.id;
+    "name" = "$($jobPrefix)001";
+    "environment" = 'kO365Exchange';
+    "description" = "";
+    "alertPolicy" = @{
+        "backupRunStatus" = @(
+            "kFailure"
+        );
+        "alertTargets" = @()
+    };
+    "office365Params" = @{
+        "indexingPolicy" = @{
+            "enableIndexing" = $enableIndexing;
+            "includePaths" = @(
+                "/"
+            );
+            "excludePaths" = @()
+        };
+        "objects" = @();
+        "excludeObjectIds" = @();
+        "protectionTypes" = @(
+            "kMailbox"
+        );
+        "outlookProtectionTypeParams" = $null;
+        "oneDriveProtectionTypeParams" = $null;
+        "publicFoldersProtectionTypeParams" = $null;
+        "sourceId" = $rootSourceId;
+        "sourceName" = $rootSource.protectionSource.name
+    }
+}
+$newjob = $newjob | ConvertTo-JSON -Depth 99 | ConvertFrom-JSON
+
+$script:protectedIndex = @()
+$updateJobs = @{}
+$newJobs = @{}
+$unchangedJobs = @{}
+
+# get the protection groups
+$alljobs = (api get -v2 "data-protect/protection-groups?environments=kO365Exchange&isActive=true&isDeleted=false").protectionGroups | Where-Object {$_.office365Params.protectionTypes -eq 'kMailbox'}
+$jobGroup = $alljobs | Sort-Object -Property name | Where-Object {$_.name -match $jobPrefix}
+
+# index protected mailboxes
+if($alljobs){
+    $script:protectedIndex = @($alljobs.office365Params.objects.id)
+}
+
+# create first protection group
+if(!$jobGroup){
+    $thisNewJob = $newjob | ConvertTo-JSON -Depth 99 | ConvertFrom-JSON
+    $jobGroup = @($thisNewJob)
+    $newJobs[$thisNewJob.name] = $thisNewJob 
+}
+
+# find unprotected mailboxes
+"`nFinding mailboxes to protect"
+$foundObjects = 0
+
+if($cluster.clusterSoftwareVersion -lt '6.6'){
+    $entityTypes = 'kMailbox,kUser,kGroup,kSite,kPublicFolder'
+}else{
+    $entityTypes = 'kMailbox,kUser,kGroup,kSite,kPublicFolder,kO365Exchange,kO365OneDrive,kO365Sharepoint'
+}
+
+$source = api get "protectionSources?id=$rootSourceId&excludeOffice365Types=$entityTypes&allUnderHierarchy=false"
+$mailboxesNode = $source.nodes | Where-Object {$_.protectionSource.name -eq 'users'}
+if(!$mailboxesNode){
+    Write-Host "Source $sourceName is not configured for O365 mailboxes" -ForegroundColor Yellow
+    exit
+}
+
+$mailboxes = api get "protectionSources?pageSize=50000&nodeId=$($mailboxesNode.protectionSource.id)&id=$($mailboxesNode.protectionSource.id)&allUnderHierarchy=false&hasValidMailbox=true&useCachedData=false"
+$cursor = $mailboxes.entityPaginationParameters.beforeCursorEntityId
+if($mailboxesNode.protectionSource.id -in $script:protectedIndex){
+    $autoProtected = $True
+}
+
+$nameIndex = @{}
+$smtpIndex = @{}
+$unprotectedIndex = @()
+$nodeIdIndex = @()
+$lastCursor = 0
+
+# enumerate mailboxes
+while(1){
+    foreach($node in $mailboxes.nodes){
+        $nodeIdIndex = @($nodeIdIndex + $node.protectionSource.id)
+        $nameIndex[$node.protectionSource.name] = $node.protectionSource.id
+        $smtpIndex[$node.protectionSource.office365ProtectionSource.primarySMTPAddress] = $node.protectionSource.id
+        if($autoProtected -ne $True -and $node.protectionSource.id -notin $script:protectedIndex){
+            if($includeDomain.Count -eq 0 -or $(($node.protectionSource.office365ProtectionSource.primarySMTPAddress -split '@')[-1]) -in $includeDomain){
+                $unprotectedIndex = @($unprotectedIndex + $node.protectionSource.id)
+                $objectsToAdd = @($objectsToAdd + @{'name' = $node.protectionSource.name; 'id' = $node.protectionSource.id})
+                $foundObjects += 1
+            }
+        }
+        $lastCursor = $node.protectionSource.id
+        if($foundObjects -ge $maxToProtect){
+            break
+        }
+    }
+    if($cursor){
+        $mailboxes = api get "protectionSources?pageSize=50000&nodeId=$($mailboxesNode.protectionSource.id)&id=$($mailboxesNode.protectionSource.id)&allUnderHierarchy=false&hasValidMailbox=true&useCachedData=false&afterCursorEntityId=$cursor"
+        $cursor = $mailboxes.entityPaginationParameters.beforeCursorEntityId
+    }else{
+        break
+    }
+    # patch for 6.8.1
+    if($mailboxes.nodes -eq $null){
+        if($cursor -gt $lastCursor){
+            $node = api get protectionSources?id=$cursor
+            $nodeIdIndex = @($nodeIdIndex + $node.protectionSource.id)
+            $nameIndex[$node.protectionSource.name] = $node.protectionSource.id
+            $smtpIndex[$node.protectionSource.office365ProtectionSource.primarySMTPAddress] = $node.protectionSource.id
+            if($autoProtected -ne $True -and $node.protectionSource.id -notin $script:protectedIndex){
+                if($includeDomain.Count -eq 0 -or $(($node.protectionSource.office365ProtectionSource.primarySMTPAddress -split '@')[-1]) -in $includeDomain){
+                    $unprotectedIndex = @($unprotectedIndex + $node.protectionSource.id)
+                    $objectsToAdd = @($objectsToAdd + @{'name' = $node.protectionSource.name; 'id' = $node.protectionSource.id})
+                    $foundObjects += 1
+                }
+            }
+            $lastCursor = $node.protectionSource.id
+        }
+    }
+    if($cursor -eq $lastCursor){
+        break
+    }
+}
+
+"`nFound $foundObjects mailboxes to protect`n" | Tee-Object -FilePath $logFile -Append
+$message = "Found $foundObjects mailboxes to protect`n" 
+
+# add unprotected mailboxes to protection groups
+
+foreach($obj in $objectsToAdd){
+    $objName = $obj.name
+    $objId = $obj.id
+    $added = $false
+    foreach($job in $jobGroup){
+        $protectedCount = @($job.office365Params.objects).Count
+        if($protectedCount -ge $maxObjectsPerJob){
+            if($job.name -notin $newJobs.Keys -and $job.name -notin $updateJobs.Keys){
+                $unchangedJobs[$job.name] = $job
+            }
+            continue
+        }else{
+            $job.office365Params.objects = @($job.office365Params.objects + @{'id' = $objId})
+            "$($job.name) <- $objName" | Tee-Object -FilePath $logFile -Append
+            $message += "$($job.name) <- $objName`n"
+            if($job.name -notin $newJobs.Keys){
+                $updateJobs[$job.name] = $job
+            }
+            $added = $True
+        }
+    }
+    if($added -eq $false){
+        $lastJobName = $jobGroup[-1].name
+        $lastJobNum = $lastJobName.Substring($lastJobName.Length - 3)
+        $newJobNum = [int]$lastJobNum + 1
+        $newJobNum = "{0:D3}" -f $newJobNum
+        $thisNewJob = $newjob | ConvertTo-JSON -Depth 99 | ConvertFrom-JSON
+        $thisNewJob.name = "$($jobPrefix)$($newJobNum)"
+        $newJobs[$thisNewJob.name] = $thisNewJob
+        $jobGroup = @($thisNewJob)
+        $thisNewJob.office365Params.objects
+        $thisNewJob.office365Params.objects = @($thisNewJob.office365Params.objects + @{'id' = $objId})
+        "$($thisNewJob.name) <- $objName" | Tee-Object -FilePath $logFile -Append
+        $message += "$($thisNewJob.name) <- $objName`n"
+    }
+}
+
+# update existing protection groups
+foreach($job in $updateJobs.Values){
+    # unprotect missing objects
+    foreach($obj in $job.office365Params.objects){
+        $search = $search = api get -v2 "data-protect/search/objects?objectIds=$($obj.id)"
+        if($search.objects.Count -eq 0){
+            "$($job.name) -- $($obj.id) (deleted)" | Tee-Object -FilePath $logFile -Append
+            $job.office365Params.objects = @($job.office365Params.objects | Where-Object {$_.id -ne $obj.id})
+        }
+    }
+    if($excludeFolders){
+        setApiProperty -object $job.office365Params -name 'outlookProtectionTypeParams' -value @{
+            "excludeFolders" = @(
+                $excludeFolders
+            );
+            "includeFolders" = $null
+        }
+    }
+    $null = api put -v2 data-protect/protection-groups/$($job.id) $job
+}
+
+foreach($job in $unchangedJobs.Values){
+    $updateThisJob = $False
+    if($updateExistingJobs){
+        if($excludeFolders){
+            setApiProperty -object $job.office365Params -name 'outlookProtectionTypeParams' -value @{
+                "excludeFolders" = @(
+                    $excludeFolders
+                );
+                "includeFolders" = $null
+            }
+            $updateThisJob = $True
+        }
+        foreach($obj in $job.office365Params.objects){
+            $search = $search = api get -v2 "data-protect/search/objects?objectIds=$($obj.id)"
+            if($search.objects.Count -eq 0){
+                "$($job.name) -- $($obj.id) (deleted)" | Tee-Object -FilePath $logFile -Append
+                $job.office365Params.objects = @($job.office365Params.objects | Where-Object {$_.id -ne $obj.id})
+                $updateThisJob = $True
+            }
+        }
+    }
+    if($updateThisJob -eq $True){
+        $null = api put -v2 data-protect/protection-groups/$($job.id) $job
+    }
+}
+
+# create new protection groups
+foreach($job in $newJobs.Values){
+    if($excludeFolders){
+        setApiProperty -object $job.office365Params -name 'outlookProtectionTypeParams' -value @{
+            "excludeFolders" = @(
+                $excludeFolders
+            );
+            "includeFolders" = $null
+        }
+    }
+    $null = api post -v2 data-protect/protection-groups $job
+}
+
+if($smtpServer -and $sendTo -and $sendFrom){
+    write-host "`nsending report to $([string]::Join(", ", $sendTo))"
+    foreach($toaddr in $sendTo){
+        Send-MailMessage -From $sendFrom -To $toaddr -SmtpServer $smtpServer -Port $smtpPort -Subject "Autoprotect M365 Mailboxes (script)" -Body $message -WarningAction SilentlyContinue
+    }
+}
